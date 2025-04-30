@@ -60,10 +60,10 @@ public function read() {
     // Actualizar un sexo
     public function update() {
         try {
-            $query = "UPDATE " . $this->table_name . " SET nombre = :nombre WHERE id = :id";
+            $query = "UPDATE " . $this->table_name . " SET nombre = :nombre WHERE idsexo = :idsexo";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":nombre", $this->nombre, PDO::PARAM_STR);
-            $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
+            $stmt->bindParam(":idsexo", $this->idsexo, PDO::PARAM_INT);
 
             return $stmt->execute();
         } catch (PDOException $e) {

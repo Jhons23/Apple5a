@@ -87,7 +87,7 @@ public function update() {
         echo "Formulario recibido";  // Verificar si llega el formulario
         if (isset($_POST['nombre'])) {
             $this->sexo->nombre = $_POST['nombre'];
-            $this->sexo->id = $_POST['id'];
+            $this->sexo->idsexo = $_POST['idsexo'];
             if ($this->sexo->update()) {
                 echo "Sexo actualizado exitosamente";
                 // Redirigir o mostrar un mensaje de éxito

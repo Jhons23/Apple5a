@@ -30,7 +30,7 @@
     <a href="/apple5a/public/sexo/edit?idsexo=<?php echo htmlspecialchars($sexo['idsexo']); ?>">
         <button>Editar</button>
     </a>
-    <a href="/apple5a/public/sexo/eliminar?id=<?php echo htmlspecialchars($sexo['idsexo']); ?>" 
+    <a href="/apple5a/public/sexo/eliminar?idsexo=<?php echo htmlspecialchars($sexo['idsexo']); ?>" 
        onclick="return confirm('¿Estás seguro de eliminar este registro?');">
         <button>Eliminar</button>
     </a>

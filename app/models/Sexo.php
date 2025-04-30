@@ -47,7 +47,7 @@ public function read() {
         try {
             $query = "SELECT * FROM " . $this->table_name . " WHERE idsexo = :idsexo LIMIT 1";
             $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(":idsexo", $this->id, PDO::PARAM_INT);
+            $stmt->bindParam(":idsexo", $this->idsexo, PDO::PARAM_INT);
             $stmt->execute();
 
             return $stmt->fetch(PDO::FETCH_ASSOC);

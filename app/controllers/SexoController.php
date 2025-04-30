@@ -63,7 +63,7 @@ public function edit($idsexo) {
 
 
 
-public function eliminar($idsexo {
+public function eliminar($idsexo) {
 
 // Pasar el ID al modelo antes de llamar a readOne()
         $this->sexo->idsexo = $idsexo;

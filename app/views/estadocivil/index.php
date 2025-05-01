@@ -22,15 +22,15 @@
         </thead>
         <tbody>
             <?php if (!empty($estadosCiviles) && is_array($estadosCiviles)): ?>
-                <?php foreach ($estadosCiviles as $estadoCivil): ?>
+                <?php foreach ($estadosCiviles as $estadocivil): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($estadoCivil['idestadocivil']); ?></td>
-                        <td><?php echo htmlspecialchars($estadoCivil['nombre']); ?></td>
+                        <td><?php echo htmlspecialchars($estadocivil['idestadocivil']); ?></td>
+                        <td><?php echo htmlspecialchars($estadocivil['nombre']); ?></td>
                         <td>
-                            <a href="/apple5a/public/estadocivil/edit?idestadocivil=<?php echo htmlspecialchars($estadoCivil['idestadocivil']); ?>">
+                            <a href="/apple5a/public/estadocivil/edit?idestadocivil=<?php echo htmlspecialchars($estadocivil['idestadocivil']); ?>">
                                 <button>Editar</button>
                             </a>
-                            <a href="/apple5a/public/estadocivil/eliminar?idestadocivil=<?php echo htmlspecialchars($estadoCivil['idestadocivil']); ?>"
+                            <a href="/apple5a/public/estadocivil/eliminar?idestadocivil=<?php echo htmlspecialchars($estadocivil['idestadocivil']); ?>"
                                onclick="return confirm('¿Estás seguro de eliminar este registro?');">
                                 <button>Eliminar</button>
                             </a>

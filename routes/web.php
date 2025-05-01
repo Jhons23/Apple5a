@@ -80,6 +80,15 @@ if (empty($route) || $route === '/') {
             $controller = new EstadoCivilController();
             $controller->index();
             break;
+        case 'estadocivil/edit':
+                if (isset($_GET['idestadocivil'])) {
+                    $controller = new EstadocivilController();
+                    $controller->edit($_GET['idestadocivil']);
+                } else {
+                    echo "Error: Falta el ID para editar.";
+                }
+                break;
+
         default:
             echo "Error 404: Página no encontrada.";
             break;

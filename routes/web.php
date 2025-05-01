@@ -89,7 +89,12 @@ if (empty($route) || $route === '/') {
                     echo "Error: Falta el ID para editar.";
                 }
                 break;
-
+                case 'estadocivil/update':
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        $controller = new EstadocivilController();
+                        $controller->update();
+                    }
+                    break;
         default:
             echo "Error 404: Página no encontrada.";
             break;

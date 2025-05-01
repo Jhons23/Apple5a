@@ -75,7 +75,7 @@ class estadocivilController {
                 $this->estadocivil->idestadocivil = $_POST['idestadocivil'];
                 if ($this->estadocivil->update()) {
                     echo "Estado Civil actualizado exitosamente";
-                    header('Location: index.php?msg=updated');
+                    header('Location: index?msg=updated');
                     exit;
                 } else {
                     echo "Error al actualizar el estado civil";

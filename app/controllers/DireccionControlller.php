@@ -190,7 +190,7 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
-    $controller = new DireccionController();
-    $controller->index(); // Acción por defecto
+  // $controller = new DireccionController();
+   // $controller->index(); // Acción por defecto
 }
 ?>

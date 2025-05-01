@@ -193,7 +193,7 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
-    $controller = new PersonaController();
-    $controller->index(); // Acción por defecto si no se especifica ninguna
+   // $controller = new PersonaController();
+  //  $controller->index(); // Acción por defecto si no se especifica ninguna
 }
 ?>

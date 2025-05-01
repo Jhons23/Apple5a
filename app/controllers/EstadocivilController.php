@@ -148,7 +148,7 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
-    $controller = new estadocivilController();
-    $controller->index(); // Mostrar la lista por defecto
+   // $controller = new estadocivilController();
+   // $controller->index(); // Mostrar la lista por defecto
 }
 ?>

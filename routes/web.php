@@ -13,7 +13,8 @@ $basePath = '/apple5a/public/';
 // Remover el prefijo basePath
 $route = str_replace($basePath, '', $requestUri);
 $route = strtok($route, '?'); // Quitar parámetros GET
-
+ 
+echo "que paso"; die();
 // Mostrar el menú si no se ha solicitado ninguna acción específica
 if (empty($route) || $route === '/') {
     echo "<h1>Menú de Tablas</h1>";

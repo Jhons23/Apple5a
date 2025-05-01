@@ -82,6 +82,8 @@ if (empty($route) || $route === '/') {
             break;
         case 'estadocivil/edit':
                 if (isset($_GET['idestadocivil'])) {
+                    echo "aaui"; 
+                    die();
                     $controller = new EstadocivilController();
                     $controller->edit($_GET['idestadocivil']);
                 } else {

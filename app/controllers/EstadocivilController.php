@@ -47,8 +47,7 @@ class estadocivilController {
         // Pasar el ID al modelo antes de llamar a readOne()
         $this->estadocivil->idestadocivil = $idestadocivil;
         $estadocivil = $this->estadocivil->readOne();
-         echo "llego";
-         die();
+         
         if (!$estadocivil) {
             die("Error: No se encontró el registro.");
         }

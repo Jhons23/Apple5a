@@ -2,10 +2,10 @@
 session_start();
 
 // Incluir los controladores necesarios
-// require_once '../app/controllers/PersonaController.php';
+ require_once '../app/controllers/PersonaController.php';
 require_once '../app/controllers/SexoController.php';
-//require_once '../app/controllers/DireccionController.php';
-//require_once '../app/controllers/TelefonoController.php';
+require_once '../app/controllers/DireccionController.php';
+require_once '../app/controllers/TelefonoController.php';
 require_once '../app/controllers/EstadocivilController.php';
 
 $requestUri = $_SERVER["REQUEST_URI"];

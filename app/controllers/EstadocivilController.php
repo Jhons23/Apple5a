@@ -124,13 +124,7 @@ if (isset($_GET['action'])) {
         case 'create':
             $controller->create();
             break;
-        case 'edit':
-            if (isset($_GET['idestadocivil'])) {
-                $controller->edit($_GET['idestadocivil']);
-            } else {
-                echo "Error: Falta el ID para editar.";
-            }
-            break;
+      
         case 'eliminar':
             if (isset($_GET['idestadocivil'])) {
                 $controller->eliminar($_GET['idestadocivil']);

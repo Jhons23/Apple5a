@@ -2,22 +2,22 @@
 // MEJORAS EN VISUAL CODE
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-// En EstadoCivilController.php
+// En estadocivilController.php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/config/database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/app/models/Estadocivil.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/app/models/estadocivil.php';
 
-class EstadoCivilController {
-    private $estadoCivil;
+class estadocivilController {
+    private $estadocivil;
     private $db;
 
     public function __construct() {
         $this->db = (new Database())->getConnection();
-        $this->estadoCivil = new EstadoCivil($this->db);
+        $this->estadocivil = new estadocivil($this->db);
     }
 
     // Mostrar todos los estados civiles
     public function index() {
-        $estadosCiviles = $this->estadoCivil->read();
+        $estadosciviles = $this->estadocivil->read();
         require_once '../app/views/estadocivil/index.php';
     }
 
@@ -25,9 +25,9 @@ class EstadoCivilController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Formulario recibido";  // Verificar si llega el formulario
             if (isset($_POST['nombre'])) {
-                $this->estadoCivil->nombre = $_POST['nombre'];
-                if ($this->estadoCivil->create()) {
-                    echo "Estado Civil creado exitosamente";
+                $this->estadocivil->nombre = $_POST['nombre'];
+                if ($this->estadocivil->create()) {
+                    echo "Estado civil creado exitosamente";
                     // Redirigir o mostrar un mensaje de éxito
                     header('Location: index.php?msg=created');
                     exit;
@@ -45,10 +45,10 @@ class EstadoCivilController {
 
     public function edit($idestadocivil) {
         // Pasar el ID al modelo antes de llamar a readOne()
-        $this->estadoCivil->idestadocivil = $idestadocivil;
-        $estadoCivil = $this->estadoCivil->readOne();
+        $this->estadocivil->idestadocivil = $idestadocivil;
+        $estadocivil = $this->estadocivil->readOne();
 
-        if (!$estadoCivil) {
+        if (!$estadocivil) {
             die("Error: No se encontró el registro.");
         }
 
@@ -57,10 +57,10 @@ class EstadoCivilController {
 
     public function eliminar($idestadocivil) {
         // Pasar el ID al modelo antes de llamar a readOne()
-        $this->estadoCivil->idestadocivil = $idestadocivil;
-        $estadoCivil = $this->estadoCivil->readOne();
+        $this->estadocivil->idestadocivil = $idestadocivil;
+        $estadocivil = $this->estadocivil->readOne();
 
-        if (!$estadoCivil) {
+        if (!$estadocivil) {
             die("Error: No se encontró el registro.");
         }
 
@@ -71,9 +71,9 @@ class EstadoCivilController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Formulario recibido";  // Verificar si llega el formulario
             if (isset($_POST['nombre'])) {
-                $this->estadoCivil->nombre = $_POST['nombre'];
-                $this->estadoCivil->idestadocivil = $_POST['idestadocivil'];
-                if ($this->estadoCivil->update()) {
+                $this->estadocivil->nombre = $_POST['nombre'];
+                $this->estadocivil->idestadocivil = $_POST['idestadocivil'];
+                if ($this->estadocivil->update()) {
                     echo "Estado Civil actualizado exitosamente";
                     header('Location: index.php?msg=updated');
                     exit;
@@ -93,8 +93,8 @@ class EstadoCivilController {
     public function delete() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['id'])) {
-                $this->estadoCivil->idestadocivil = $_POST['id'];
-                if ($this->estadoCivil->delete()) {
+                $this->estadocivil->idestadocivil = $_POST['id'];
+                if ($this->estadocivil->delete()) {
                     echo "Estado Civil borrado exitosamente";
                     header('Location: index.php?msg=deleted');
                     exit;
@@ -114,7 +114,7 @@ class EstadoCivilController {
 
 /// Manejo de la acción en la URL
 if (isset($_GET['action'])) {
-    $controller = new EstadoCivilController();
+    $controller = new estadocivilController();
 
     switch ($_GET['action']) {
         case 'index':
@@ -148,7 +148,7 @@ if (isset($_GET['action'])) {
             break;
     }
 } else {
-    $controller = new EstadoCivilController();
+    $controller = new estadocivilController();
     $controller->index(); // Mostrar la lista por defecto
 }
 ?>

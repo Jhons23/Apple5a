@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <?php if (!empty($estadosciviles) && is_array($estadosciviles)): ?>
-                <?php foreach ($estadosCiviles as $estadocivil): ?>
+                <?php foreach ($estadosciviles as $estadocivil): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($estadocivil['idestadocivil']); ?></td>
                         <td><?php echo htmlspecialchars($estadocivil['nombre']); ?></td>

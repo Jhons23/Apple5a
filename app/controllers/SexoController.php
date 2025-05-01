@@ -139,7 +139,6 @@ public function update() {
 if (isset($_GET['action'])) {
     $controller = new SexoController();
 
-	   echo "hola";
     switch ($_GET['action']) {
         case 'create':
             $controller->create();

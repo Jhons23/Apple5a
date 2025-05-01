@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1>Listar Estados Civiles</h1>
-    <a href="/apple5a/app/views/estadocivil/create"><button>Agregar</button></a>
+    <a href="/apple5a/app/views/estadocivil/create.php"><button>Agregar</button></a>
 
     <table>
         <thead>

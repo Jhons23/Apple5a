@@ -118,4 +118,24 @@ public function delete() {
     
     
 
+        // Enrutador (fuera de la clase)
+if (isset($_GET['action'])) {
+    $controller = new SexoController();
+
+    switch ($_GET['action']) {
+        case 'create':
+            $controller->create();
+            break;
+        case 'update':
+            $controller->update();
+            break;
+        case 'delete':
+            $controller->delete();
+            break;
+        default:
+            echo "Acción no válida.";
+            break;
+    }
+}
+
 ?>

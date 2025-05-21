@@ -7,15 +7,17 @@
 </head>
 <body>
 
-<<h1>Eliminar Sexo</h1>
-
-<form method="POST" action="index.php?action=delete">
+<h1>Editar el Sexo</h1>
+<form action="/apple5a/public/sexo/delete" method="POST">
     <input type="hidden" name="idsexo" value="<?php echo htmlspecialchars($sexo['idsexo']); ?>">
-    <p>¿Seguro que deseas eliminar <strong><?php echo htmlspecialchars($sexo['nombre']); ?></strong>?</p>
-    <button type="submit">Eliminar</button>
-    <a href="index.php">Cancelar</a>
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($sexo['nombre']); ?>" required>
+    
+    <input type="submit" value="Eliminar">
 </form>
 
+<a href="index">Volver al listado</a>
 
 </body>
 </html>

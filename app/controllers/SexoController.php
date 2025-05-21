@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <?php
 // MEJORAS EN VISUAL CODE
@@ -62,7 +63,7 @@ public function edit($idsexo) {
 }
 
 
-// es uno
+
 public function eliminar($idsexo) {
 
 // Pasar el ID al modelo antes de llamar a readOne()
@@ -111,28 +112,50 @@ public function update() {
 
 
     // Eliminar un sexo
-public function delete() {
+    public function delete() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        if (!empty($_POST['idsexo'])) {
-            $this->sexo->idsexo = $_POST['idsexo'];   // ← usamos idsexo
-
-            if ($this->sexo->delete()) {
-                header('Location: index.php?msg=deleted');
-            } else {
-                header('Location: index.php?msg=error');
-            }
-            exit;                                     // ¡importante!
-
+        if (isset($_POST['idsexo'])) {
+            $this->sexo->idsexo = $_POST['idsexo'];
+        if ($this->sexo->delete()) {
+                echo "Sexo borrado exitosamente";
+            header('Location: index.php?msg=deleted');
+            exit;
         } else {
-            echo 'Faltan datos: idsexo vacío';
+            header('Location: index.php?msg=error');
             exit;
         }
-
+} else {
+            echo "Faltan datos";
+        }
     } else {
-        echo 'Método incorrecto: se esperaba POST';
-        exit;
+        echo "Método incorrecto";  // Verificar que el formulario no se envíe con GET
     }
+    die();  // Detener la ejecución para ver los mensajes
+
+}
+
+
+public function api() {
+
+        while (ob_get_level()) {
+            ob_end_clean();
+        }
+
+        $sexos = $this->sexo->getAll();
+        header('Content-Type: application/json');
+        echo json_encode($sexos);
+        exit;
+
+
+
+    }
+
+
+
+
+
+
+
 }
 
 /// Manejo de la acción en la URL
@@ -150,6 +173,11 @@ if (isset($_GET['action'])) {
          case 'delete':
 
             $controller->delete();
+            break;
+
+         case 'api':
+
+            $controller->api();
             break;
 
 

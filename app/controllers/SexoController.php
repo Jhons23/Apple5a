@@ -109,27 +109,30 @@ public function update() {
 
 
 
-// Eliminar un sexo
-public function delete() {
+
+    // Eliminar un sexo
+    public function delete() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!empty($_POST['id'])) {
+        if (isset($_POST['id'])) {
             $this->sexo->id = $_POST['id'];
-            
-            if ($this->sexo->delete()) {
+        if ($this->sexo->delete()) {
                 echo "Sexo borrado exitosamente";
-                exit; // Detiene ejecución
-            } else {
-                echo "Error al borrar el sexo";
-                exit;
-            }
+		die();
+            header('Location: index.php?msg=deleted');
+            exit;
         } else {
-            echo "Faltan datos: no llegó el ID";
+            header('Location: index.php?msg=error');
             exit;
         }
+} else {
+            echo "Faltan datos";
+        }
     } else {
-        echo "Método incorrecto. Se esperaba POST.";
-        exit;
+        echo "Método incorrecto";  // Verificar que el formulario no se envíe con GET
     }
+    die();  // Detener la ejecución para ver los mensajes
+
+}
 }
 
 /// Manejo de la acción en la URL

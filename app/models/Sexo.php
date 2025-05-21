@@ -73,12 +73,24 @@ public function read() {
     }
 
     // Eliminar un sexo
-    public function delete() {
-        try {
-            if (empty($this->id)) {
-                return false;
-            }
-	            error_log("Intentando eliminar el ID: " . $this->id);
+    // Eliminar un sexo
+public function delete() {
+    try {
+        if (empty($this->idsexo)) {        // ← comprobamos idsexo
+            return false;
+        }
+
+        $query = "DELETE FROM {$this->table_name} WHERE idsexo = :idsexo";
+        $stmt  = $this->conn->prepare($query);
+        $stmt->bindParam(':idsexo', $this->idsexo, PDO::PARAM_INT);
+
+        return $stmt->execute();
+
+    } catch (PDOException $e) {
+        error_log("Error en delete(): " . $e->getMessage());
+        return false;
+    }
+}
 
 
 
@@ -103,6 +115,7 @@ public function read() {
             error_log("Error en delete(): " . $e->getMessage());
             return false;
         }
-    }
-}
+    
+    
+
 ?>

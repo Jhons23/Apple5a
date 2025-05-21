@@ -62,7 +62,7 @@ public function edit($idsexo) {
 }
 
 
-
+// es uno
 public function eliminar($idsexo) {
 
 // Pasar el ID al modelo antes de llamar a readOne()

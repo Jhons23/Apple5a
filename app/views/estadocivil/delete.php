@@ -8,7 +8,8 @@
 <body>
 
 <h1>Eliminar el estadocivil</h1>
-<form action="/apple5a/public/estadocivil/delete" method="POST">
+<form action="/apple5a/public/estadocivil/index.php?action=delete" method="POST">
+
     <input type="hidden" name="idestadocivil" value="<?php echo htmlspecialchars($estadocivil['idestadocivil']); ?>">
     
     <label for="nombre">Nombre:</label>

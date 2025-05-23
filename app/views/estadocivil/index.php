@@ -29,13 +29,15 @@
                         <td><?php echo htmlspecialchars($estadocivil['idestadocivil']); ?></td>
                         <td><?php echo htmlspecialchars($estadocivil['nombre']); ?></td>
                         <td>
+
                             <a href="/apple5a/public/estadocivil/edit?idestadocivil=<?php echo htmlspecialchars($estadocivil['idestadocivil']); ?>">
                                 <button>Editar</button>
-                           <a href="/apple5a/public/estadocivil.php?action=eliminar&idestadocivil=<?=
-                                        htmlspecialchars($estadocivil['idestadocivil']); ?>"
-                                       onclick="return confirm('¿Estás seguro de eliminar este registro?');">
-                                    <button>Eliminar</button>
-                            </a>
+
+                          <a href="estadocivil.php?action=eliminar&idestadocivil=<?= htmlspecialchars($estadocivil['idestadocivil']); ?>"
+                          onclick="return confirm('¿Estás seguro de eliminar este registro?');">
+                            <button>Eliminar</button>
+                         </a>
+
 
                         </td>
                     </tr>

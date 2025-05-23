@@ -6,9 +6,13 @@ error_reporting(E_ALL);
 require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/config/database.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/app/models/Estadocivil.php';
 
+require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../models/Estadocivil.php';
+
 class estadocivilController {
     private $estadocivil;
     private $db;
+    
 
     public function __construct() {
         $this->db = (new Database())->getConnection();

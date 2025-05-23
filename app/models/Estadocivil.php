@@ -1,7 +1,5 @@
-PHP
-
 <?php
-// Modelo EstadoCivil Prueba definitiva Jandry
+// Modelo EstadoCivil
 class EstadoCivil {
     private $conn;
     private $table_name = "estadocivil";
@@ -13,7 +11,14 @@ class EstadoCivil {
         $this->conn = $db;
     }
 
-    // Crear un nuevo estado civil prueba definitiva 2
+
+    public function getAll() {
+        $db = Database::connect();
+        $query = $db->query("SELECT idestadocivil, nombre FROM estadocivil");
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Crear un nuevo estado civil
     public function create() {
         try {
             $query = "INSERT INTO " . $this->table_name . " (nombre) VALUES (:nombre)";

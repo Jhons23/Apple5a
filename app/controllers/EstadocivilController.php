@@ -15,7 +15,7 @@ class estadocivilController {
         $this->estadocivil = new estadocivil($this->db);
     }
 
-    // Mostrar todos los estados civiles
+    // Mostrar todos los estados civiles  Actualiza por Jandry Escobar
     public function index() {
         $estadosciviles = $this->estadocivil->read();
         require_once '../app/views/estadocivil/index.php';
@@ -23,7 +23,7 @@ class estadocivilController {
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            echo "Formulario recibido";  // Verificar si llega el formulario
+            echo "Formulario recibido";  // Verificar si llega el formulario Actualizado por Jandry Escobar
             if (isset($_POST['nombre'])) {
                 $this->estadocivil->nombre = $_POST['nombre'];
                 if ($this->estadocivil->create()) {

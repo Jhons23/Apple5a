@@ -1,7 +1,7 @@
 PHP
 
 <?php
-// Modelo EstadoCivil Actualizado Jandry
+// Modelo EstadoCivil Prueba Jandry
 class EstadoCivil {
     private $conn;
     private $table_name = "estadocivil";

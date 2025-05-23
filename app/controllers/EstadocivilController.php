@@ -1,5 +1,5 @@
 <?php
-// MEJORAS EN VISUAL CODE
+// MEJORAS EN VISUAL CODE  Mejoras definitiva
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 // En estadocivilController.php

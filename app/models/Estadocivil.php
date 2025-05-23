@@ -1,7 +1,7 @@
 PHP
 
 <?php
-// Modelo EstadoCivil Por Jandry
+// Modelo EstadoCivil Por Jandry + 2
 class EstadoCivil {
     private $conn;
     private $table_name = "estadocivil";

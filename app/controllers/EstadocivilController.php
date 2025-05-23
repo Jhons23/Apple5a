@@ -113,36 +113,5 @@ class estadocivilController {
 }
 
 /// Manejo de la acción en la URL
-if (isset($_GET['action'])) {
-    $controller = new estadocivilController();
 
-    switch ($_GET['action']) {
-        case 'index':
-            $controller->index();
-            break;
-        case 'create':
-            $controller->create();
-            break;
-      
-        case 'eliminar':
-            if (isset($_GET['idestadocivil'])) {
-                $controller->eliminar($_GET['idestadocivil']);
-            } else {
-                echo "Error: Falta el ID para eliminar.";
-            }
-            break;
-        case 'update':
-            $controller->update();
-            break;
-        case 'delete':
-            $controller->delete();
-            break;
-        default:
-            echo "Acción no válida.";
-            break;
-    }
-} else {
-   // $controller = new estadocivilController();
-   // $controller->index(); // Mostrar la lista por defecto
-}
 ?>

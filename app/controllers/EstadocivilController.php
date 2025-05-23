@@ -114,4 +114,38 @@ class estadocivilController {
 
 /// Manejo de la acción en la URL
 
+/// Manejo de la acción en la URL
+if (isset($_GET['action'])) {
+    $controller = new SexoController();
+
+    switch ($_GET['action']) {
+        case 'create':
+            $controller->create();
+            break;
+         case 'update':
+
+            $controller->update();
+            break;
+         case 'delete':
+
+            $controller->delete();
+            break;
+
+         case 'api':
+
+            $controller->api();
+            break;
+
+
+
+
+
+        default:
+            echo "Acción no válida.";
+            break;
+    }
+} else {
+//    echo "No se especificó ninguna acción.";
+}
+
 ?>

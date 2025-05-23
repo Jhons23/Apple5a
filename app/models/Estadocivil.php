@@ -1,7 +1,7 @@
 PHP
 
 <?php
-// Modelo EstadoCivil Prueba Jandry
+// Modelo EstadoCivil Jandry //2
 class EstadoCivil {
     private $conn;
     private $table_name = "estadocivil";
@@ -13,7 +13,7 @@ class EstadoCivil {
         $this->conn = $db;
     }
 
-    // Crear un nuevo estado civil Test
+    // Crear un nuevo estado civil prueba definitiva
     public function create() {
         try {
             $query = "INSERT INTO " . $this->table_name . " (nombre) VALUES (:nombre)";

@@ -1,18 +1,14 @@
 <?php
-// MEJORAS EN VISUAL CODE  Mejoras definitiva
+// MEJORAS EN VISUAL CODE
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 // En estadocivilController.php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/config/database.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/apple5a/app/models/Estadocivil.php';
 
-require_once __DIR__ . '/../../config/database.php';
-require_once __DIR__ . '/../models/Estadocivil.php';
-
 class estadocivilController {
     private $estadocivil;
     private $db;
-    
 
     public function __construct() {
         $this->db = (new Database())->getConnection();
@@ -46,6 +42,8 @@ class estadocivilController {
         }
         die();  // Detener la ejecución para ver los mensajes
     }
+
+    
 
     public function edit($idestadocivil) {
         // Pasar el ID al modelo antes de llamar a readOne()
@@ -114,42 +112,57 @@ class estadocivilController {
         }
         die();  // Detener la ejecución para ver los mensajes
     }
+
+    public function api() {
+
+        while (ob_get_level()) {
+            ob_end_clean();
+        }
+
+        $estadosciviles = $this->estadocivil->getAll();
+        header('Content-Type: application/json');
+        echo json_encode($estadosciviles);
+        exit;
+    }
 }
 
-/// Manejo de la acción en la URL
+
+
 
 /// Manejo de la acción en la URL
 if (isset($_GET['action'])) {
-    $controller = new SexoController();
+    $controller = new estadocivilController();
 
     switch ($_GET['action']) {
+        case 'index':
+            $controller->index();
+            break;
         case 'create':
             $controller->create();
             break;
-         case 'update':
-
+      
+        case 'eliminar':
+            if (isset($_GET['idestadocivil'])) {
+                $controller->eliminar($_GET['idestadocivil']);
+            } else {
+                echo "Error: Falta el ID para eliminar.";
+            }
+            break;
+        case 'update':
             $controller->update();
             break;
-         case 'delete':
-
+        case 'delete':
             $controller->delete();
             break;
-
-         case 'api':
-
+        case 'api':
             $controller->api();
             break;
-
-
-
-
-
         default:
             echo "Acción no válida.";
             break;
     }
 } else {
-//    echo "No se especificó ninguna acción.";
+   // $controller = new estadocivilController();
+   // $controller->index(); // Mostrar la lista por defecto
 }
-
 ?>

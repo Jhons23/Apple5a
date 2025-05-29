@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <?php
 // MEJORAS EN VISUAL CODE
@@ -145,9 +144,6 @@ public function api() {
         header('Content-Type: application/json');
         echo json_encode($sexos);
         exit;
-
-
-
     }
 
 
